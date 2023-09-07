@@ -1,1 +1,1 @@
-C:\Users\andde\OneDrive\Рабочий стол\django\..\.venv\
+venv\
