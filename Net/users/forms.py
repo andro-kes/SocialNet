@@ -31,7 +31,13 @@ class AuthForm(forms.AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(AuthForm, self).__init__(*args, **kwargs)
     
-    username = UsernameField(widget=f.TextInput(attrs={'placeholder': 'Введите имя пользователя',}))
+    username = UsernameField(widget=f.TextInput(attrs={
+        'placeholder': 'Введите имя пользователя',
+        'class': 'forms',
+        }))
     password = f.CharField(
-        widget = f.PasswordInput(attrs={'placeholder': 'Введите пароль',})
+        widget = f.PasswordInput(attrs={
+            'placeholder': 'Введите пароль',
+            'class': 'forms',
+        })
     )
