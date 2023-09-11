@@ -1,11 +1,18 @@
 {% extends 'registration/base.html' %}
 
+{% block title %}Регистрация{% endblock %}
+
 {% block content %}
-    <form action='{% url "register" %}' method='post'>
+<div class="wrapper">
+    <h1>Добро пожаловать!</h1>
+    <form method='post' class="login-form">
         {% csrf_token %}
+        {{ errors }}
         {{ form.username }}
         {{ form.password1 }}
         {{ form.password2 }}
-        <input type='submit' value='send'>
+        <input type='submit' value='Зарегистрироваться' class="button">
     </form>
+    <a href="{% url 'login' %}">Войти</a>
+</div>  
 {% endblock %}

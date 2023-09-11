@@ -6,14 +6,14 @@ from .models import User
 class UserCreationForm(forms.UserCreationForm):
     password1 = f.CharField(
         widget = f.PasswordInput(attrs={
-                'class': '',
+                'class': 'forms',
                 'placeholder': 'Придумайте пароль', 
             }
         )
     )
     password2 = f.CharField(
         widget = f.PasswordInput(attrs={
-            'class': '',
+            'class': 'forms',
             'placeholder': 'Повторите пароль',
             }
         )
@@ -24,7 +24,10 @@ class UserCreationForm(forms.UserCreationForm):
         fields = ['username']
         
         widgets = {
-            
+            'username': f.TextInput(attrs={
+                'class': 'forms', 
+                'placeholder': 'Введите имя пользвоателя',
+            })
         }
         
 class AuthForm(forms.AuthenticationForm):

@@ -1,5 +1,7 @@
 {% extends 'registration\base.html' %}
 
+{% block title %}Вход{% endblock %}
+
 {% block content %}
     <div class="wrapper">
         <h1>С возвращением!</h1>
@@ -10,5 +12,6 @@
             {{ form.password }}
             <input type='submit' value='Войти' class="button">
         </form>
+    <a href="{% url 'register' %}">Зарегистроваться</a>   
     </div>  
 {% endblock %}
