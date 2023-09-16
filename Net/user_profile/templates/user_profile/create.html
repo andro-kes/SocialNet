@@ -3,25 +3,26 @@
 {% block title %}Создание профиля{% endblock %}
 
 {% block content %}
-    <form method="post" enctype="multipart/form-data" class="form" id="form">
-        {% csrf_token %}
-        {{ form.errors }}
-        <div class="wrapper">
-            <div class='bio-ava'>
-                <div class="ava"><b>+</b></div>
-                {{ form.ava }}
-                {{ form.bio }}
+    <div class="wrapper-create">
+        <form method="post" enctype="multipart/form-data" class="form" id="form">
+            {% csrf_token %}
+            {{ form.errors }}
+            <div class="wrapper">
+                <div class='bio-ava'>
+                    <div class="ava"><b>+</b></div>
+                    {{ form.ava }}
+                    {{ form.bio }}
+                </div>
+                <div class="name-surname-status">
+                    <h1>Создайте профиль</h1>
+                    {{ form.name }}
+                    {{ form.surname }}
+                    {{ form.status }}
+                </div>
             </div>
-            <div class="name-surname-status">
-                <h1>Создайте профиль</h1>
-                {{ form.name }}
-                {{ form.surname }}
-                {{ form.status }}
-            </div>
-        </div>
-        {{ form.slug }}
-        <input type="button" value="Создать" class="button" id="button">
-    </form>
-
+            {{ form.slug }}
+            <input type="button" value="Создать" class="button" id="button">
+        </form>
+    </div>
     <script src="{% static 'user_profile/javascript/create.js' %}"></script>
 {% endblock %}

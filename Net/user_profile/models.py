@@ -11,7 +11,7 @@ class Profile(models.Model):
     slug = models.SlugField(null=True)
     
     def __str__(self):
-        return self.user
+        return str(self.user)
     
     def get_absolute_url(self):
         return reverse('profile', kwargs={'slug': self.slug})

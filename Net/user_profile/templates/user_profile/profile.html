@@ -2,7 +2,15 @@
 {% block title %}Профиль{% endblock %}
 
 {% block content %}
-    {{ profile.name }}
-    {{ profile.surname }}
-    {{ profile.status }}
+    <div class="wrapper-profile">
+        <div class="main-infa">
+            <img src="{{ profile.ava.url }}" alt='ava' class="ava-profile">
+            <div class="name-profile">
+                <p>{{ profile.name }} {{ profile.surname }}</p>
+                <p>{{ profile.status }}</p> 
+                <!--После постов разместить био-->
+            </div>
+        </div>
+    </div>
+    
 {% endblock %}

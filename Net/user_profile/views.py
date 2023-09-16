@@ -19,6 +19,5 @@ class CreateProfileView(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
     
-    succes_url = reverse_lazy('main')
     
     
