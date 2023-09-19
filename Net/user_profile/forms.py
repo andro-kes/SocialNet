@@ -10,6 +10,7 @@ class CreateProfileForm(forms.ModelForm):
             'ava': forms.ClearableFileInput(attrs={
                 'class': 'ava-link',
                 'label': None,
+                'id': 'ava_id',
             }),
             'name': forms.TextInput(attrs={
                 'placeholder': 'Введите имя',

@@ -8,10 +8,13 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background: #353535;
+    background: #1b1b1b;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+header{
+    display: none;
 }
 .forms{
     border-radius: 30px;
@@ -20,6 +23,11 @@
     font-size: 16px;
     box-shadow: 10px 10px 10px 5px #000;
     transition: transform 0.3s ease;
+    background-color: #fffefc;
+}
+.forms:focus{
+    transform: scale(1.2);
+    outline: none;
 }
 .base_form{
     width: 300px;
@@ -42,7 +50,6 @@
     align-items: center;
     justify-content: center;
     row-gap: 40px;
-    position: relative;
     justify-items: center;
 }
 .name-surname-status{
@@ -50,7 +57,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    row-gap: 40px;
+    row-gap: 50px;
 }
 .ava{
     width: 100px;
@@ -64,12 +71,11 @@
     font-size: 62px;
     opacity: 0.8;
     position: absolute;
-    top: -10px;
     z-index: 1;
 }
 .ava-link{
     width: 100px;
-    height: 80px;
+    height: 100px;
     position: inherit;
     z-index: 10;
     opacity: 0;
@@ -90,7 +96,57 @@
     box-shadow: 10px 10px 10px 5px #000;
     transition: transform 0.2s ease-in;
 }
+.button:hover{
+    transform: scale(1.1);
+}
 h1{
     color: #fff;
     padding: 10px;
+}
+.wrapper-phone{
+    display: none;
+}
+#ava-clear_id{
+    display: none;
+}
+.delete-ava{
+    width: auto;
+    height: auto;
+    padding: 5px 2px;
+    background-color: #1b1b1b;
+    color: #fff;
+    margin-top: -50px;
+    border: none;
+}
+
+@media(max-width: 600px){
+    .wrapper-create{
+        padding-top: 20px;
+         height: auto;
+    }
+    .delete-ava{
+        margin: 0;
+    }
+    .forms{
+        transform: scale(0.8);
+    }
+    .wrapper{
+       display: none;
+    }
+    .wrapper-phone{
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        row-gap: 10px;
+        align-content: center;
+        justify-content: center;
+    }
+    .bio-ava, .name-surname-status{
+        row-gap: 10px;
+    }
+    .ava{
+        top: -245px;
+    }
+    .button{
+        margin: 20px 0;
+    }
 }

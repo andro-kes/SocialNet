@@ -6,11 +6,14 @@
         <div class="main-infa">
             <img src="{{ profile.ava.url }}" alt='ava' class="ava-profile">
             <div class="name-profile">
-                <p>{{ profile.name }} {{ profile.surname }}</p>
-                <p>{{ profile.status }}</p> 
-                <!--После постов разместить био-->
+                <p class='name-infa'>{{ profile.name }} {{ profile.surname }}</p>
+                <p class="status-infa">{{ profile.status }}</p> 
+               
             </div>
         </div>
+        <article class="bio-profile"> <p>{{ profile.bio }}</p></article>
+        <center class="posts">
+        </center>
     </div>
     
 {% endblock %}

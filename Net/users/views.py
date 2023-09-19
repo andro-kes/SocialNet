@@ -5,10 +5,11 @@ from .forms import UserCreationForm, AuthForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-
 class MainView(g.View):
     def get(self, request):
-        return render(request, 'users/index.html')
+        if self.request.user.is_authenticated:
+            return render(request, 'users/index.html')
+        return HttpResponseRedirect(reverse('register'))
    
     
 class LoginView(views.LoginView):

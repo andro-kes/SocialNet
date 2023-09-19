@@ -8,9 +8,10 @@
             {% csrf_token %}
             {{ form.errors }}
             <div class="wrapper">
-                <div class='bio-ava'>
+                <div class='bio-ava' id="ava_div">
                     <div class="ava"><b>+</b></div>
                     {{ form.ava }}
+                    <input type="button" class="delete-ava" value='Удалить аватарку'>
                     {{ form.bio }}
                 </div>
                 <div class="name-surname-status">
@@ -20,9 +21,24 @@
                     {{ form.status }}
                 </div>
             </div>
+            <div class="wrapper-phone">
+                <div class="name-surname-status">
+                    <h1>Создайте профиль</h1>
+                    {{ form.ava }}
+                    <input type="button" class="delete-ava" value='Удалить аватарку'>
+                    {{ form.name }}
+                    {{ form.surname }}
+                </div>
+                <div class='bio-ava'>
+                    <div class="ava"><b>+</b></div>
+                    {{ form.status }}
+                    {{ form.bio }}
+                </div>
+            </div>
             {{ form.slug }}
             <input type="button" value="Создать" class="button" id="button">
         </form>
     </div>
     <script src="{% static 'user_profile/javascript/create.js' %}"></script>
+    <script src="{% static 'user_profile/javascript/update.js' %}"></script>
 {% endblock %}
