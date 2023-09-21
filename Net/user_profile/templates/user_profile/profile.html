@@ -4,7 +4,11 @@
 {% block content %}
     <div class="wrapper-profile">
         <div class="main-infa">
-            <img src="{{ profile.ava.url }}" alt='ava' class="ava-profile">
+            {% if profile.ava %}
+                <img src="{{ profile.ava.url }}" alt='ava' class="ava-profile">
+            {% else %}
+                <img src="static/user_profile/img/no_ava.jpg" alt="" class="ava-profile">
+            {% endif %}
             <div class="name-profile">
                 <p class='name-infa'>{{ profile.name }} {{ profile.surname }}</p>
                 <p class="status-infa">{{ profile.status }}</p> 

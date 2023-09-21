@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
@@ -23,4 +24,11 @@ class UpdateProfileView(UpdateView):
     model = Profile
     template_name = 'user_profile/create.html'
     form_class = CreateProfileForm
+    
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        user = Profile.objects.get(user=self.request.user)
+        context['ava_preview'] = user.ava
+        context['title_update'] = 'Редактирование профиля'
+        return context
     

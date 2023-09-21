@@ -1,6 +1,13 @@
 {% extends 'user_profile/base.html' %}
 {% load static %}
-{% block title %}Создание профиля{% endblock %}
+
+{% block title %}
+    {% if title_update %}
+        {{ title_update }}
+    {% else %}
+        Создание профиля
+    {% endif %}
+{% endblock %}
 
 {% block content %}
     <div class="wrapper-create">
@@ -10,12 +17,21 @@
             <div class="wrapper">
                 <div class='bio-ava' id="ava_div">
                     <div class="ava"><b>+</b></div>
+                    {% if ava_preview %}
+                        <div class="ava-div" style="display: block;"><img src="{{ ava_preview.url }}" alt="ava" class="ava-image"></div>
+                    {% else %}
+                        <div class="ava-div"><img src="" alt="ava" class="ava-image"></div>
+                    {% endif %}
                     {{ form.ava }}
-                    <input type="button" class="delete-ava" value='Удалить аватарку'>
+                    <input type="button" value="Удалить аву" class="delete-ava">
                     {{ form.bio }}
                 </div>
                 <div class="name-surname-status">
-                    <h1>Создайте профиль</h1>
+                    {% if title_update %}
+                        <h1>{{ title_update }}</h1>
+                    {% else %}
+                         <h1>Создайте профиль</h1>
+                    {% endif %}
                     {{ form.name }}
                     {{ form.surname }}
                     {{ form.status }}
@@ -23,14 +39,23 @@
             </div>
             <div class="wrapper-phone">
                 <div class="name-surname-status">
-                    <h1>Создайте профиль</h1>
+                    {% if title_update %}
+                        <h1>{{ title_update }}</h1>
+                    {% else %}
+                         <h1>Создайте профиль</h1>
+                    {% endif %}
                     {{ form.ava }}
-                    <input type="button" class="delete-ava" value='Удалить аватарку'>
+                    <input type="button" value="Удалить аву" class="delete-ava">
                     {{ form.name }}
                     {{ form.surname }}
                 </div>
                 <div class='bio-ava'>
                     <div class="ava"><b>+</b></div>
+                    {% if ava_preview %}
+                        <div class="ava-div" style="display: block;"><img src="{{ ava_preview.url }}" alt="ava" class="ava-image"></div>
+                    {% else %}
+                        <div class="ava-div"><img src="" alt="ava" class="ava-image"></div>
+                    {% endif %}
                     {{ form.status }}
                     {{ form.bio }}
                 </div>
