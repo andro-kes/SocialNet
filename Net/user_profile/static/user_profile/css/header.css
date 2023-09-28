@@ -12,6 +12,8 @@ header{
     top: 0;
     color: #fff;
     box-shadow: 5px 5px 5px 5px #000;
+    display: flex;
+    align-items: center;
 }
 header p{
     font-size: 32px;

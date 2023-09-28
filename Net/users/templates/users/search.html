@@ -1,0 +1,31 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+    <div class="wrapper-search">
+        <input type="text" placeholder="Введите никнэйм" id="search_field" class="search-input">
+        <div id="names">
+            {% for name in object_list %}
+                {{ name }}<br>
+            {% endfor %}
+        </div>
+    </div>
+ 
+    <script>
+        const data = '{{ queryset }}';
+        const rdata = JSON.parse(data.replace(/&quot;/g, '"'));
+
+        let input = document.getElementById('search_field');
+        let box = document.getElementById('names')
+        input.onkeyup = (e) => {
+            let filterset = [];
+            box.innerHTML = '';
+            for(let el of rdata){
+                if((el.toLowerCase()).includes(input.value.toLowerCase()))
+                    box.innerHTML += el + '<br>';
+            }
+            if(box.innerHTML)
+                return
+            box.innerHTML = 'Такого пользователя не существует';
+        }
+    </script>
+{% endblock %}

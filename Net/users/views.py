@@ -4,18 +4,25 @@ from django.contrib.auth import views, login
 from .forms import UserCreationForm, AuthForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from .models import User
+import json
 
 class MainView(g.View):
     def get(self, request):
         if self.request.user.is_authenticated:
             return render(request, 'users/index.html')
-        return HttpResponseRedirect(reverse('register'))
-   
+        return HttpResponseRedirect(reverse('register')) 
+    
+class SearchView(g.list.ListView):
+    model = User
+    template_name = 'users/search.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['queryset'] = json.dumps(list(map(str, list(User.objects.filter().only('username')))))
+        return context
     
 class LoginView(views.LoginView):
     authentication_form = AuthForm
-    print('work')
-
 
 class LogoutView(views.LogoutView):
     pass
