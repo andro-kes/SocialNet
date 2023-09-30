@@ -1,15 +1,20 @@
 {% extends 'users/base.html' %}
+{% load static %}
 
 {% block content %}
+
+    <form method="post" id="form_search">
+        {% csrf_token %}
+        {{ form.name }}
+    </form>
+
     <div class="wrapper-search">
         <input type="text" placeholder="Введите никнэйм" id="search_field" class="search-input">
-        <div id="names">
-            {% for name in object_list %}
-                {{ name }}<br>
-            {% endfor %}
+        <div id="names" class="names">
+            Найдите нового друга
         </div>
     </div>
- 
+
     <script>
         const data = '{{ queryset }}';
         const rdata = JSON.parse(data.replace(/&quot;/g, '"'));
@@ -20,12 +25,17 @@
             let filterset = [];
             box.innerHTML = '';
             for(let el of rdata){
-                if((el.toLowerCase()).includes(input.value.toLowerCase()))
-                    box.innerHTML += el + '<br>';
+                if((el.toLowerCase()).includes(input.value.toLowerCase()) && input.value)
+                    box.innerHTML += '<p onclick=profile(event)>'+el+'</p>' + '<br>';
             }
             if(box.innerHTML)
                 return
-            box.innerHTML = 'Такого пользователя не существует';
+            if(input.value){
+                box.innerHTML = 'Такого пользователя не существует';
+                return
+            }
+            box.innerHTML = 'Найдите нового друга';
         }
     </script>
+    <script src="{% static 'users/js/search.js' %}"></script>
 {% endblock %}

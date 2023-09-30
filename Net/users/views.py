@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic as g
 from django.contrib.auth import views, login
-from .forms import UserCreationForm, AuthForm
+from .forms import UserCreationForm, AuthForm, SearchForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import User
@@ -19,7 +19,12 @@ class SearchView(g.list.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['queryset'] = json.dumps(list(map(str, list(User.objects.filter().only('username')))))
+        context['form'] = SearchForm()
         return context
+    def post(self, request):
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect(reverse('profile', kwargs={'slug': form.cleaned_data['name']}))
     
 class LoginView(views.LoginView):
     authentication_form = AuthForm

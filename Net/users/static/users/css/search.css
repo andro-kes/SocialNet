@@ -1,8 +1,47 @@
 .wrapper-search{
     display: flex;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 200px;
     flex-direction: column;
     width: 400px;
     align-items: center;
+}
+.names{
+    color: #fff;
+    width: 300px;
+    padding: 20px;
+    overflow-y: scroll;
+    height: 200px;
+    text-align: center;
+    font-size: 1.2em;
+    overflow: hidden;
+}
+.names::-webkit-scrollbar{
+    width: 7px;
+}
+.names::-webkit-scrollbar-track {
+  background: #1b1b1b;       
+}
+.names::-webkit-scrollbar-thumb {
+    background-color: #fffefc;
+    border-radius: 20px;
+    border: none;
+}
+input{
+    width: 300px;
+    border-radius: 30px 30px 5px 5px;
+    border: none;
+    padding: 20px;
+    font-size: 16px;
+    box-shadow: 10px 10px 10px 5px #000;
+    transition: transform 0.3s ease;
+    background: #fffefc;
+    outline: none;
+}
+p{
+    cursor: default;
+    transition: transform 0.2s ease;
+}
+p:hover{
+    transform: scale(1.3);
 }

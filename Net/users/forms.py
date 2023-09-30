@@ -44,3 +44,10 @@ class AuthForm(forms.AuthenticationForm):
             'class': 'forms',
         })
     )
+    
+class SearchForm(f.Form):
+    name = f.CharField(
+        widget = f.TextInput(attrs={
+            'hidden': True,
+        })
+    )
