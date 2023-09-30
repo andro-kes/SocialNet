@@ -12,12 +12,20 @@
             <div class="name-profile">
                 <p class='name-infa'>{{ profile.name }} {{ profile.surname }}</p>
                 <p class="status-infa">{{ profile.status }}</p> 
-               
+                <button id="room_enter">Написать</button>  
             </div>
         </div>
         <article class="bio-profile"> <p>{{ profile.bio }}</p></article>
         <center class="posts">
         </center>
     </div>
-    
+
+    <script>
+        document.getElementById('room_enter').onclick = () => {
+            filterset = ['{{ profile.user }}'.toLowerCase(), '{{ request.user }}'.toLocaleLowerCase()];
+            filterset.sort();
+            let roomName = filterset.join('_');
+            window.location.pathname = '/chat/' + roomName + '/';
+        }
+    </script> 
 {% endblock %}

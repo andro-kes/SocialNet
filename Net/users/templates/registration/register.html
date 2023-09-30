@@ -7,6 +7,7 @@
     <h1>Добро пожаловать!</h1>
     <form method='post' class="login-form">
         {% csrf_token %}
+        {{ form.errors }}
         {{ errors.error }}
         {{ form.username }}
         {{ form.password1 }}

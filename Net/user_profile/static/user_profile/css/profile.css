@@ -34,7 +34,7 @@ header{
 .name-profile{
     font-size: 20px;
     display: grid;
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
     row-gap: 10px;
 }
 .posts{
