@@ -1,0 +1,73 @@
+.wrapper-chat{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 50px;
+    height: 650px;
+    overflow-y: scroll;
+}
+.wrapper-chat::-webkit-scrollbar{
+    width: 7px;
+}
+.wrapper-chat::-webkit-scrollbar-track {
+  background: #1b1b1b;       
+}
+.wrapper-chat::-webkit-scrollbar-thumb {
+    background-color: #fffefc;
+    border-radius: 5px;
+    border: none;
+}
+.chat{
+    width: 40%;
+}
+.message{
+    position: absolute;
+    bottom: 0;
+    outline: none;
+    background: #fff;
+    height: 30px;
+    border: none;
+    border-top: 5px solid #000;
+    font-size: 1em;
+    width: 90%;
+    padding: 5px 0%;
+    text-indent: 10px;
+}
+.button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10%;
+    background-color: #ffb24f;
+    height: 45px;
+    border: none;
+    border-top: 5px solid #000;
+    font-size: 1em;
+}
+.you, .friend{
+    margin-bottom: 30px;
+    display: flex;
+}
+.you{
+    justify-content: flex-end;
+}
+.you-message{
+    background-color: #ffb24f;
+    border-radius: 5px 5px 30px 5px;
+    width: auto;
+    max-width: 250px;
+    padding: 10px;
+    text-align: right;
+}
+.friend{
+    justify-content: flex-start;
+}
+.friend-message{
+    background-color: #fff;
+    border-radius: 5px 5px 5px 30px;
+    width: auto;
+    max-width: 250px;
+    padding: 10px;
+    color: #000;
+    text-align: left;
+}

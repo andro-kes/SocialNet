@@ -1,11 +1,23 @@
 {% extends 'chats/base.html' %}
 {% load static %}
 
+{% block title %}Чат{% endblock %}
+
 {% block content %}
     <p hidden id='user'>{{ request.user }}</p>
-    <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-    <input id="chat-message-input" type="text" size="100"><br>
-    <input id="chat-message-submit" type="button" value="Send">
+    <center class="wrapper-chat" id="wrapper">
+        <div class="chat" id="chat-log">
+            {% for m in messages %}
+                {% if m.user == request.user %}
+                    <div class="you"><p class="you-message">{{ m.text }}</p></div>
+                {% else %}
+                    <div class="friend"><p class="friend-message">{{ m.text }}</p></div>
+                {% endif %}
+            {% endfor %}
+        </div>   
+    </center>
+    <input id="chat-message-input" type="text" size="100" class="message"><br>
+    <input id="chat-message-submit" type="button" value="Send" class="button">
     {{ room_name|json_script:"room-name" }}
 
     <script src='{% static "chats/javascript/room.js" %}'></script>
