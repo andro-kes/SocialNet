@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 def getUserName(username):
-    return User.objects.get(username__iexact=username)
+    return User.objects.get(username__exact=username)
 
 class ChatConsumer(WebsocketConsumer):
     def connect(self):

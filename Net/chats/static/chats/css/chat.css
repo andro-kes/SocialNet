@@ -3,7 +3,7 @@
     width: 100%;
     justify-content: center;
     margin-top: 50px;
-    height: 650px;
+    height: 630px;
     overflow-y: scroll;
 }
 .wrapper-chat::-webkit-scrollbar{
@@ -70,4 +70,13 @@
     padding: 10px;
     color: #000;
     text-align: left;
+}
+header{
+    background: #000;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
 }

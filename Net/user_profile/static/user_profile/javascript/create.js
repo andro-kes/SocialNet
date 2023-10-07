@@ -1,6 +1,7 @@
 const d = document;
 
-let el = (id) => d.getElementById(id)
+let el = (id) => d.getElementById(id),
+    getcl = (cl_name) => d.getElementsByClassName(cl_name);
 
 let button = el('button'),
     form = el('form'),
@@ -14,9 +15,22 @@ let ava = d.getElementsByClassName('ava'),
     ava_clear = el('ava-clear_id'),
     delete_ava = d.getElementsByClassName('delete-ava');
 
+let forms = {
+    'name_forms': getcl('name_form'),
+    'bio_forms': getcl('bio_form'),
+    'surnames_forms': getcl('surname_form'),
+    'status_forms': getcl('status_form'),
+}
+
 button.onclick = () => {
+    for(let form in forms){
+        if(forms[form][0].value){
+            forms[form][1].value = forms[form][0].value;
+        } else{
+            forms[form][0].value = forms[form][1].value;
+        } 
+    }
     slug.value = user_get.innerText;
-    console.log('Слаг для пользователя добавлен');
     form.submit();
 }
 
@@ -45,6 +59,11 @@ for(input of ava_form){
         }
         let tgt = evt.target;
         let files = tgt.files;
+        if(ava_form[0].files.length){
+            ava_form[1].files = ava_form[0].files;
+        } else{
+            ava_form[0].files = ava_form[1].files
+        }
         // FileReader
         if (FileReader && files && files.length) {
             let fr = new FileReader();

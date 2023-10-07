@@ -5,8 +5,8 @@ class Profile(models.Model):
     user = models.OneToOneField('users.User', null=True, on_delete=models.CASCADE)
     ava = models.ImageField(blank=True, null=True, upload_to='images/')
     bio = models.TextField(blank=True, null=True)
-    name = models.CharField(max_length=50, blank=True, null=True)
-    surname = models.CharField(max_length=50, blank=True, null=True)
+    name = models.CharField(max_length=50, null=True)
+    surname = models.CharField(max_length=50, null=True)
     status = models.CharField(max_length=250, blank=True, null=True)
     slug = models.SlugField(null=True)
     

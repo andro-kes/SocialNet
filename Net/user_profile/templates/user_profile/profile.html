@@ -7,12 +7,14 @@
             {% if profile.ava %}
                 <img src="{{ profile.ava.url }}" alt='ava' class="ava-profile">
             {% else %}
-                <img src="static/user_profile/img/no_ava.jpg" alt="" class="ava-profile">
+                <img src="/static/user_profile/img/no_avatar.jpg" alt="" class="ava-profile">
             {% endif %}
             <div class="name-profile">
                 <p class='name-infa'>{{ profile.name }} {{ profile.surname }}</p>
                 <p class="status-infa">{{ profile.status }}</p> 
-                <button id="room_enter">Написать</button>  
+                {% if profile.user != request.user %}
+                    <button id="room_enter">Написать</button>  
+                {% endif %}
             </div>
         </div>
         <article class="bio-profile"> <p>{{ profile.bio }}</p></article>
@@ -21,11 +23,13 @@
     </div>
 
     <script>
-        document.getElementById('room_enter').onclick = () => {
-            filterset = ['{{ profile.user }}'.toLowerCase(), '{{ request.user }}'.toLocaleLowerCase()];
-            filterset.sort();
-            let roomName = filterset.join('_');
-            window.location.pathname = '/chat/' + roomName + '/';
+        if(document.getElementById('room_enter')){
+            document.getElementById('room_enter').onclick = () => {
+                filterset = ['{{ profile.user }}', '{{ request.user }}'];
+                filterset.sort();
+                let roomName = filterset.join('_');
+                window.location.pathname = '/chat/' + roomName + '/';
+            }
         }
     </script> 
 {% endblock %}
