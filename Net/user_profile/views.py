@@ -16,7 +16,6 @@ class CreateProfileView(CreateView):
     form_class = CreateProfileForm
    
     def form_valid(self, form):
-        print(form.data)
         form.instance.user = self.request.user
         return super().form_valid(form)
     

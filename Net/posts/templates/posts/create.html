@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание поста</title>
+    <link rel="stylesheet" href="{% static 'posts/css/create.css' %}">
+</head>
+<body>
+    <center class="wrapper-create-posts">
+        <form method="post" enctype="multipart/form-data" id="form_submit">
+            {{ form.errors }}
+            {% csrf_token %}
+            <div class="form">
+                {{ form.image }}
+                {{ form.comment}}
+            </div>
+            <div class="image-wrapper" id="image_wrapper">+</div>
+            <img src="" alt="image" class="image-image" id="image_image">
+            <input type="submit" value="Создать" class="button-create" id="button_create">
+        </form>    
+    </center>
+
+    <script src="{% static 'posts/js/create.js' %}"></script>
+</body>
+</html>
