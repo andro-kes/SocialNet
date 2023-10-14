@@ -5,12 +5,16 @@ from .forms import UserCreationForm, AuthForm, SearchForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import User
+from posts.models import Posts
 import json
 
 class MainView(g.View):
     def get(self, request):
         if self.request.user.is_authenticated:
-            return render(request, 'users/index.html')
+            data = {
+                'posts': Posts.objects.filter(author=self.request.user),
+            }
+            return render(request, 'users/index.html', data)
         return HttpResponseRedirect(reverse('register')) 
     
 class SearchView(g.list.ListView):

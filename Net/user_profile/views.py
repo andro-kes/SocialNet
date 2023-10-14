@@ -3,12 +3,17 @@ from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
 from .models import Profile
+from posts.models import Posts
 from .forms import CreateProfileForm
 
 class ProfileView(DetailView):
     model = Profile
     template_name = 'user_profile/profile.html'
     context_object_name = 'profile'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['posts'] = Posts.objects.filter(author=self.request.user)
+        return context
 
 class CreateProfileView(CreateView):
     model = Profile 

@@ -1,4 +1,5 @@
 {% extends 'user_profile/base.html' %}
+{% load static %}
 {% block title %}Профиль{% endblock %}
 
 {% block content %}
@@ -18,7 +19,20 @@
             </div>
         </div>
         <article class="bio-profile"> <p>{{ profile.bio }}</p></article>
-        <center class="posts">
+
+        <center class="posts" id="posts">
+            {% for post in posts %}
+                <img src="{{ post.image.url }}" alt="pic" class="image-view">
+            {% endfor %}
+        </center>
+
+        <center class="posts-wrapper" id="posts_wrapper">
+            <button class="close" id="close"><b>x</b></button>
+            <center class="posts-galery">
+                {% for post in posts %}
+                    <img src="{{ post.image.url }}" alt="pic" class="image-view">
+                {% endfor %}
+            </center>
         </center>
     </div>
 
@@ -32,4 +46,5 @@
             }
         }
     </script> 
+    <script src="{% static 'user_profile/javascript/profile.js' %}"></script>
 {% endblock %}
