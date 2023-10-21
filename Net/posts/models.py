@@ -8,7 +8,7 @@ class Posts(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return str(self.author)
+        return str(self.id)
     
     def get_absolute_url(self):
         return reverse("main")

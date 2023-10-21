@@ -9,6 +9,7 @@
 </head>
 <body>
     <p id="user" hidden>{{ request.user.username }}</p>
+    <p id="post_id" hidden>{{ post.id }}</p>
     <center class="wrapper">
           <div class="post">
             <p class="comment">{{ post.comment }}</p>
@@ -16,7 +17,19 @@
         </div>
         <div class="conteiner">
             <div class="comments">
-                <div class="field-comments"></div>
+                <div class="field-comments">
+                    {% for c in comments %}
+                        <div class='message'>
+                            <div class='user-m'>
+                                <p class='user'>{{ c.author }}</p>
+                                <p class='message-text'>{{ c.text }}</p>
+                            </div>
+                            <div class='date'>
+                                <p class='date-data'>{{ c.time }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
                 <input type="text" class="input-send">
                 <button class="button-send-message">
                     <img src="{% static 'posts/img/send.png' %}" alt="send" class="send-img">

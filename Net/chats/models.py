@@ -15,3 +15,12 @@ class Messages(models.Model):
     
     def __str__(self):
         return self.text
+    
+class Comments(models.Model):
+    post_id = models.ForeignKey('posts.Posts', on_delete=models.CASCADE)
+    author = models.ForeignKey('users.User', on_delete=models.CASCADE)
+    text = models.TextField()
+    time = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return str(self.author)

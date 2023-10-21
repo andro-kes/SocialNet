@@ -2,7 +2,8 @@ import json
 
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
-from .models import Messages
+from .models import Messages, Comments
+from posts.models import Posts
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -68,11 +69,18 @@ class CommentConsumer(WebsocketConsumer):
         message = text_data_json["message"]
         user = text_data_json['user']
         time = text_data_json['time']
+        post_id = text_data_json['post_id']
+        Comments.objects.create(
+            post_id=Posts.objects.get(id=int(post_id)),
+            author=User.objects.get(username=user),
+            text=message
+        )
         async_to_sync(self.channel_layer.group_send)(
-            self.room_group_name, {"type": "chat.message", "message": message, 'user': user, 'time': time}
+            self.room_group_name, {"type": "chat.message", "message": message, 'post_id': post_id, 'user': user, 'time': time}
         )
     def chat_message(self, event):
         message = event["message"]
         user = event['user']
         time = event['time']
-        self.send(text_data=json.dumps({"message": message, 'user': user, 'time': time}))  
+        post_id = event['post_id']
+        self.send(text_data=json.dumps({"message": message, 'user': user, 'time': time, 'post_id': post_id}))  

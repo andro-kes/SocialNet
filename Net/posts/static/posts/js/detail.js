@@ -23,11 +23,10 @@ chatSocket.onmessage = function(e) {
         <div class='message'>
             <div class='user-m'>
                 <p class='user'>${user}</p>
-                <p class'message'>${m}</p>
+                <p class'='message-text'>${m}</p>
             </div>
             <div class='date'>
-                <p class='date-data'>${date.date}.${date.month + 1}.${date.year}</p>
-                <p class='date-data'>${date.hours}:${date.minutes}:${date.seconds}</p>
+                <p class='date-data'>${date.month} ${date.year} г. ${date.hours}:${date.minutes}</p>
             </div>
         </div>
     `;
@@ -54,13 +53,12 @@ document.querySelector('.button-send-message').onclick = function(e) {
         chatSocket.send(JSON.stringify({
             'message': message,
             'user': document.getElementById('user').innerHTML,
+            'post_id': document.getElementById('post_id').innerHTML,
             'time': {
                 'year': date.getFullYear(),
-                'month': date.getMonth(),
-                'date': date.getDate(),
+                'month': date.toLocaleString('default', { month: 'long', day: 'numeric' }),
                 'hours': date.getHours(),
                 'minutes': date.getMinutes(),
-                'seconds': date.getSeconds(),
             }
         }));
     }
