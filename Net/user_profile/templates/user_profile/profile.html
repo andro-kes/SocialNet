@@ -30,7 +30,9 @@
             <button class="close" id="close"><b>x</b></button>
             <center class="posts-galery">
                 {% for post in posts %}
-                    <img src="{{ post.image.url }}" alt="pic" class="image-view">
+                    <a href="{% url 'detail_post' post.id %}">
+                        <img src="{{ post.image.url }}" alt="pic" class="image-view">
+                    </a>
                 {% endfor %}
             </center>
         </center>

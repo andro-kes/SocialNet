@@ -28,7 +28,7 @@
             box.innerHTML = '';
             for(let el of rdata){
                 if((el.toLowerCase()).includes(input.value.toLowerCase()) && input.value)
-                    box.innerHTML += '<p onclick=profile(event)>'+el+'</p>' + '<br>';
+                    box.innerHTML += '<p onclick=profile(event) class="user-find">'+el+'</p>' + '<br>';
             }
             if(box.innerHTML)
                 return

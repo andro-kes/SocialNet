@@ -38,11 +38,11 @@ input{
     background: #fffefc;
     outline: none;
 }
-p{
+.user-find{
     cursor: default;
     transition: transform 0.2s ease;
 }
-p:hover{
+.user-find:hover{
     transform: scale(1.3);
 }
 
