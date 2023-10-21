@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+}
+body{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #1b1b1b;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body::-webkit-scrollbar{
+    width: 7px;
+}
+body::-webkit-scrollbar-track {
+    background: #000;       
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #fffefc;
+    border-radius: 5px;
+    border: none;
+}
+.wrapper{
+    width: 400px;
+    height: auto;
+    background: #000;
+    border-radius: 10px;
+}
+.post{
+    width: auto;
+    height: auto;
+}
+.image-post{
+    width: 360px;
+    border-radius: 10px;
+}
+.comment{
+    color: #fff;
+    margin: 30px 0 20px 0;
+    font-size: 1.2em;
+    text-align: left;
+    padding: 0 20px;
+}
+.conteiner{
+    background-color: #000;
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+.comments{
+    width: 400px;
+    position: absolute;
+    bottom: 0;
+    border-radius: 10px;
+}
+.field-comments{
+    overflow-y: scroll;
+    height: 350px;
+    margin-bottom: 30px;
+}
+.field-comments::-webkit-scrollbar{
+    width: 7px;
+}
+.field-comments::-webkit-scrollbar-track {
+    background: #000;       
+}
+.field-comments::-webkit-scrollbar-thumb {
+    background-color: #fffefc;
+    border-radius: 5px;
+    border: none;
+}
+.input-send{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    height: 20px;
+    outline: none;
+    padding: 5px 0%;
+    border: none;
+    border-radius: 0 0 0 10px;
+}
+.button-send-message{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 10%;
+    height: 30px;
+    border: none;
+    border-radius: 0 0 10px 0;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.send-img{
+    width: 80%;
+    height: 80%;
+}
+.message{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    padding: 5px 20px;
+    background-color: #1b1b1b;
+    border-bottom: 5px solid black;
+}
+.user-m{
+    text-align: left;
+    color: #fff;
+}
+.date{
+    text-align: right;
+    color: #fff;
+}
+.user{
+    font-size: 0.85em;
+    margin-bottom: 5px;
+    color: #cdcece;
+}
+.date-data{
+    font-size: 0.85em;
+    color: #cdcece;
+}
+.message{
+    font-size: 1.1em;
+}

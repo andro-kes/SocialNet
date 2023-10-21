@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'posts/css/detail.css' %}">
+</head>
+<body>
+    <p id="user" hidden>{{ request.user.username }}</p>
+    <center class="wrapper">
+          <div class="post">
+            <p class="comment">{{ post.comment }}</p>
+            <img src="{{ post.image.url }}" alt="post_image" class="image-post">
+        </div>
+        <div class="conteiner">
+            <div class="comments">
+                <div class="field-comments"></div>
+                <input type="text" class="input-send">
+                <button class="button-send-message">
+                    <img src="{% static 'posts/img/send.png' %}" alt="send" class="send-img">
+                </button>
+            </div>
+        </div>
+       
+    </center>
+    {{ post.pk|json_script:"room-name" }}
+    <script src="{% static 'posts/js/detail.js' %}"></script>
+</body>
+</html>
+<!--Комментарий пересекается с комментами. Пофиксить-->
