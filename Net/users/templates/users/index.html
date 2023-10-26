@@ -9,6 +9,7 @@
                 <img src="{{ post.image.url }}" alt="post_image" class="post-image">
                 <a href="{% url 'detail_post' post.id %}"><img src="{% static 'users/img/comment.png' %}" alt="comment" class="comment-link"></a>
             </div>
+            <div class="end-post"></div>
         {% endfor %}
     </div>
 {% endblock %}

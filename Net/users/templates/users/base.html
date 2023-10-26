@@ -14,6 +14,11 @@
     <header>
         <h1 id='user'><b>{{ user }}</b></h1>
     </header>
+    <aside>
+        <a href="{% url 'profile' user.username %}" class="menu">Профиль</a>
+        <a href="{% url 'index' %}" class="menu">Чаты</a>
+        <a href="{% url 'create_post' %}" class="menu">Создать</a>
+    </aside>
     {% block content %}
     {% endblock %}
 </body>
