@@ -1,3 +1,8 @@
+.wrapper-page-rooms{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 100%;
+}
 .rooms-wrapper{
     justify-content: center;
     margin-top: 10px;
@@ -31,5 +36,25 @@ a{
     word-spacing: 10px;
 }
 a:hover{
+    transform: scale(1.1);
+}
+aside{
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 5px 5px 5px 5px #000;
+    gap: 20px;
+}
+.menu{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+.menu:hover{
     transform: scale(1.1);
 }

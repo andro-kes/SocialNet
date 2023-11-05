@@ -34,6 +34,17 @@
     max-height: 230px;
     max-width: 300px;
 }
+.forms::-webkit-scrollbar{
+    width: 7px;
+}
+.forms::-webkit-scrollbar-track {
+    background: #1b1b1b;       
+}
+.forms::-webkit-scrollbar-thumb {
+    background-color: #fffefc;
+    border-radius: 5px;
+    border: none;
+}
 .forms:focus{
     transform: scale(1.05);
     outline: none;

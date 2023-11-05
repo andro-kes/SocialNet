@@ -2,9 +2,16 @@
 {% load static %}
 
 {% block content %}
-    <center class="rooms-wrapper">
-        {% for room, friend in active_rooms.items %}
-            <a href="{% url 'room' room %}" class="wrapper-room">{{ friend.name }} {{ friend.surname }}</a>
-        {% endfor %}
-    </center>
+    <div class="wrapper-page-rooms">
+        <aside>
+            <a href="{% url 'profile' user.username %}" class="menu">Профиль</a>
+            <a href="{% url 'index' %}" class="menu">Чаты</a>
+            <a href="{% url 'create_post' %}" class="menu">Создать</a>
+        </aside>
+        <center class="rooms-wrapper">
+            {% for room, friend in active_rooms.items %}
+                <a href="{% url 'room' room %}" class="wrapper-room">{{ friend.name }} {{ friend.surname }}</a>
+            {% endfor %}
+        </center>
+    </div>
 {% endblock %}

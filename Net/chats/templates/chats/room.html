@@ -6,6 +6,9 @@
 {% block content %}
     <p hidden id='user'>{{ request.user }}</p>
     <header>
+        <a href="{% url 'index' %}" class="back">
+            <img src="{% static 'chats/img/strelka.png' %}" alt="back" class="back-img">
+        </a>
         <b>{{ friend_name.name }} {{ friend_name.surname }}</b>
     </header>
     <center class="wrapper-chat" id="wrapper">

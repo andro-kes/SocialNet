@@ -13,6 +13,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 body::-webkit-scrollbar{
     width: 7px;
@@ -26,7 +27,7 @@ body::-webkit-scrollbar-thumb {
     border: none;
 }
 .wrapper{
-    width: 400px;
+    width: 500px;
     height: auto;
     background: #000;
     border-radius: 10px;
@@ -36,7 +37,7 @@ body::-webkit-scrollbar-thumb {
     height: auto;
 }
 .image-post{
-    width: 360px;
+    width: 460px;
     border-radius: 10px;
 }
 .comment{
@@ -48,12 +49,12 @@ body::-webkit-scrollbar-thumb {
 }
 .conteiner{
     background-color: #000;
-    width: 400px;
+    width: 500px;
     height: 400px;
     position: relative;
 }
 .comments{
-    width: 400px;
+    width: 500px;
     position: absolute;
     bottom: 0;
     border-radius: 10px;
