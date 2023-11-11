@@ -13,13 +13,43 @@
 <body>
     <header>
         <h1 id='user'><b>{{ user }}</b></h1>
+        <button class="phone-menu" id="menu_button">
+            <img src="{% static 'users/img/menu.png' %}" alt="chat" class="menu-phone-icon">
+        </button>
     </header>
     <aside>
-        <a href="{% url 'profile' user.username %}" class="menu">Профиль</a>
-        <a href="{% url 'index' %}" class="menu">Чаты</a>
-        <a href="{% url 'create_post' %}" class="menu">Создать</a>
+        <a href="{% url 'main' %}" class="menu">
+            <img src="{% static 'users/img/main.png' %}" alt="chat" class="menu-icon">
+        </a>
+        <a href="{% url 'profile' user.username %}" class="menu">
+            <img src="{% static 'users/img/profile.png' %}" alt="chat" class="menu-icon">
+        </a>
+        <a href="{% url 'index' %}" class="menu">
+            <img src="{% static 'users/img/chat.png' %}" alt="chat" class="menu-icon">
+        </a>
+        <a href="{% url 'create_post' %}" class="menu">
+            <img src="{% static 'users/img/create.png' %}" alt="chat" class="menu-icon">
+        </a>
     </aside>
+
+    <div class="hide-menu" id="hide_menu">
+        <a href="{% url 'main' %}" class="menu">
+            <img src="{% static 'users/img/main.png' %}" alt="chat" class="menu-icon">
+        </a>
+        <a href="{% url 'profile' user.username %}" class="menu">
+            <img src="{% static 'users/img/profile.png' %}" alt="chat" class="menu-icon">
+        </a>
+        <a href="{% url 'index' %}" class="menu">
+            <img src="{% static 'users/img/chat.png' %}" alt="chat" class="menu-icon">
+        </a>
+        <a href="{% url 'create_post' %}" class="menu">
+            <img src="{% static 'users/img/create.png' %}" alt="chat" class="menu-icon">
+        </a>
+        <button class="close" id="close">X</button>
+    </div>
     {% block content %}
     {% endblock %}
+
+    <script src="{% static 'users/js/base.js' %}"></script>
 </body>
 </html>

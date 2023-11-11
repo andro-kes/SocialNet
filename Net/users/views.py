@@ -12,7 +12,7 @@ class MainView(g.View):
     def get(self, request):
         if self.request.user.is_authenticated:
             data = {
-                'posts': Posts.objects.all(),
+                'posts': Posts.objects.all().order_by('-date'),
             }
             return render(request, 'users/index.html', data)
         return HttpResponseRedirect(reverse('register')) 

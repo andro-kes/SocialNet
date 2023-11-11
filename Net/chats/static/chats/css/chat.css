@@ -93,3 +93,43 @@ header{
     width: 40px;
     height: 40px;
 }
+
+@media(max-width: 400px){
+    .button{
+        font-size: 0.8em;
+    }
+    .friend-message, .you-message{
+        font-size: 0.9em;
+    }
+    .you, .friend{
+        margin-bottom: 20px;
+    }
+    .chat{
+        width: 70%;
+    }
+}
+@media(max-width: 300px){
+    .button{
+        font-size: 0.7em;
+    }
+}
+@media(max-height: 700px){
+    .wrapper-chat{
+        height: 470px;
+    }
+}
+@media(max-height: 600px){
+    .wrapper-chat{
+        height: 370px;
+    }
+}
+@media(max-height: 500px){
+    .wrapper-chat{
+        height: 270px;
+    }
+}
+@media(max-height: 400px){
+    .wrapper-chat{
+        height: 170px;
+    }
+}

@@ -56,9 +56,6 @@ input{
     header{
         height: 80px;
     }
-    header h1{
-        font-size: 15px;
-    }
     input, .names{
         width: 250px;
     }

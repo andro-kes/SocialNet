@@ -5,23 +5,22 @@
     background: #1b1b1b;
     text-align: center;
     z-index: -1;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 20% 80%;
     align-items: center;
-    gap: 50px;
 }
 header{
     display: flex;
     align-items: center;
 }
 .main-infa{
-    display: grid;
-    grid-template-columns: repeat(2, auto);
+    display: flex;
+    flex-direction: column;
     color: #fff;
-    gap: 100px;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 60px;
+    gap: 10px;
 }
 .ava-profile{
     width: 150px;
@@ -42,12 +41,13 @@ header{
     height: 300px;
     background: grey;
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    column-gap: 20px;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 10px;
     padding: 10px;
     border-radius: 20px;
     overflow: hidden;
     transition: transform 0.3s ease-out;
+    justify-items: center;
 }
 .posts:hover{
     transform: scale(1.05)
@@ -57,7 +57,7 @@ header{
 }
 .image-view{
     height: 100px;
-    width: auto;
+    width: 100px;
     border-radius: 20px;
 }
 .bio-profile{
@@ -87,4 +87,123 @@ header{
     font-size: 2em;
     border: none;
 }
+aside{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 5px 5px #000;
+    gap: 20px;
+}
+.menu{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+.menu:hover{
+    transform: scale(1.1);
+}
+.menu-icon{
+    width: 100px;
+    height: 100px;
+}
+.menu-icon{
+    width: 100px;
+    height: 100px;
+}
+.menu-phone-icon{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.phone-menu{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #000;
+    border: none;
+    display: none;
+}
+.hide-menu{
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    background: #000;
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    top: 0;
+    border-radius: 0 0 0 20px;
+    gap: 10px;
+}
+.close{
+    position: absolute;
+    font-size: 20px;
+    right: 5px;
+    top: 5px;
+    background: black;
+    color: #f1bb1f;
+    border: 0;
+    font-weight: bolder;
+}
 
+@media(max-height: 800px){
+    .wrapper-img-infa{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+   .ava-profile{
+    margin-right: 20px;
+   }
+}
+@media(max-width: 700px){
+    .wrapper-profile{
+        grid-template-columns: 10% 90%;
+    }
+    .menu-icon{
+        width: 50px;
+        height: 50px;
+    }
+}
+@media(max-width:650px){
+    .posts{
+        width: 400px;
+    }
+}
+@media(max-width:600px){
+    .posts{
+        width: 250px;
+        grid-template-columns: repeat(2, auto);
+    }
+    .ava-profile{
+        width: 100px;
+        height: 100px;
+    }
+    .name-profile{
+        font-size: 16px;
+    }
+}
+@media(max-width: 550px){
+    aside{
+        display: none;
+    }
+    .phone-menu{
+        display: block;
+    }
+    .wrapper-profile{
+       display: flex;
+       justify-content: center;
+    }
+}

@@ -4,8 +4,22 @@
 
 {% block content %}
     <div class="wrapper-profile">
+        <aside>
+            <a href="{% url 'main' %}" class="menu">
+                <img src="{% static 'users/img/main.png' %}" alt="chat" class="menu-icon">
+            </a>
+            <a href="{% url 'profile' user.username %}" class="menu">
+                <img src="{% static 'users/img/profile.png' %}" alt="chat" class="menu-icon">
+            </a>
+            <a href="{% url 'index' %}" class="menu">
+                <img src="{% static 'users/img/chat.png' %}" alt="chat" class="menu-icon">
+            </a>
+            <a href="{% url 'create_post' %}" class="menu">
+                <img src="{% static 'users/img/create.png' %}" alt="chat" class="menu-icon">
+            </a>
+        </aside>
         <div class="main-infa">
-            {% if profile.ava %}
+            <div class="wrapper-img-infa">{% if profile.ava %}
                 <img src="{{ profile.ava.url }}" alt='ava' class="ava-profile">
             {% else %}
                 <img src="/static/user_profile/img/no_avatar.jpg" alt="" class="ava-profile">
@@ -16,15 +30,14 @@
                 {% if profile.user != request.user %}
                     <button id="room_enter">Написать</button>  
                 {% endif %}
-            </div>
+            </div></div>
+             <article class="bio-profile"> <p>{{ profile.bio }}</p></article>
+            <center class="posts" id="posts">
+                {% for post in posts %}
+                    <img src="{{ post.image.url }}" alt="pic" class="image-view">
+                {% endfor %}
+            </center>
         </div>
-        <article class="bio-profile"> <p>{{ profile.bio }}</p></article>
-
-        <center class="posts" id="posts">
-            {% for post in posts %}
-                <img src="{{ post.image.url }}" alt="pic" class="image-view">
-            {% endfor %}
-        </center>
 
         <center class="posts-wrapper" id="posts_wrapper">
             <button class="close" id="close"><b>x</b></button>
