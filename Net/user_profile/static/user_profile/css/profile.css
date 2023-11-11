@@ -78,7 +78,7 @@ header{
     justify-content: center;
     align-items: center;
 }
-.close{
+.close-galery{
     position: absolute;
     top: 5%;
     right: 100px;
@@ -165,7 +165,11 @@ aside{
         justify-content: center;
     }
    .ava-profile{
-    margin-right: 20px;
+        margin-right: 20px;
+   }
+   .close-galery{
+        right: 5px;
+        top: 5px;
    }
 }
 @media(max-width: 700px){
@@ -194,6 +198,19 @@ aside{
     .name-profile{
         font-size: 16px;
     }
+    .posts-galery{
+        width: 400px;
+        height: 300px;
+        background: grey;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        column-gap: 10px;
+        padding: 10px;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: transform 0.3s ease-out;
+        justify-items: center;
+    }
 }
 @media(max-width: 550px){
     aside{
@@ -205,5 +222,25 @@ aside{
     .wrapper-profile{
        display: flex;
        justify-content: center;
+    }
+}
+@media(max-height: 700px){
+    .posts{
+        width: 250px;
+        grid-template-columns: repeat(2, auto);
+    }
+    .ava-profile{
+        width: 100px;
+        height: 100px;
+    }
+    .name-profile{
+        font-size: 16px;
+    }
+    .posts{
+       height: auto;
+    }
+    .menu-icon{
+        width: 50px;
+        height: 50px;
     }
 }

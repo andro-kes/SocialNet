@@ -5,16 +5,15 @@
 
 {% block content %}
 
-    <form method="post" id="form_search">
-        {% csrf_token %}
-        {{ form.name }}
-    </form>
-
     <div class="wrapper-search">
         <input type="text" placeholder="Введите никнэйм" id="search_field" class="search-input">
         <div id="names" class="names">
             Найдите нового друга
         </div>
+        <form method="post" id="form_search">
+            {% csrf_token %}
+            {{ form.name }}
+        </form>
     </div>
 
     <script>

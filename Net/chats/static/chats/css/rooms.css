@@ -64,6 +64,18 @@ aside{
     width: 100px;
     height: 100px;
 }
+.search{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    background-color: #1b1b1b;
+}
+.search-icon{
+    width: 60px;
+    height: 60px;
+}
 
 @media(max-width: 600px){
     .wrapper-page-rooms{
@@ -71,6 +83,16 @@ aside{
     }
     a{
         width: 90%;
+    }
+    .search{
+        width: 50px;
+        height: 50px;
+        bottom: 10px;
+        top: auto;
+    }
+    .search-icon{
+        width: 50px;
+        height: 50px;
     }
 }
 @media(max-width: 500px){

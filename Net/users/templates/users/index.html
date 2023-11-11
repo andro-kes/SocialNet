@@ -5,6 +5,7 @@
     <div class="wrapper-index">
         {% for post in posts %}
             <div class="post">
+                <p class="post-author">Автор: {{ post.author }}</p>
                 <p class="text-post-comment">{{ post.comment }}</p>
                 <img src="{{ post.image.url }}" alt="post_image" class="post-image">
                 <a href="{% url 'detail_post' post.id %}"><img src="{% static 'users/img/comment.png' %}" alt="comment" class="comment-link"></a>

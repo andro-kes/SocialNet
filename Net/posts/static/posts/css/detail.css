@@ -130,3 +130,34 @@ body::-webkit-scrollbar-thumb {
 .message-text{
     font-size: 1.1em;
 }
+
+@media(max-width: 500px){
+    .image-post{
+        width: 380px;
+    }
+    .wrapper, .conteiner, .comments{
+        width: 400px;
+    }
+}
+@media(max-width: 400px){
+    .image-post{
+        width: 280px;
+    }
+    .wrapper, .conteiner, .comments{
+        width: 300px;
+    }
+    .wrapper{
+        margin-bottom: 50px;
+    }
+}
+@media(max-width: 300px){
+    .image-post{
+        width: 180px;
+    }
+    .wrapper, .conteiner, .comments{
+        width: 200px;
+    }
+    .wrapper{
+        margin-bottom: 50px;
+    }
+}

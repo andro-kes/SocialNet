@@ -4,7 +4,7 @@ const user = document.getElementById('user'),
     div = document.getElementById('wrapper');
 
 const chatSocket = new WebSocket(
-    'ws://'
+    'wss://'
     + window.location.host
     + '/ws/chat/'
     + roomName

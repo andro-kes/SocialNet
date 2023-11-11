@@ -28,7 +28,7 @@
                 <p class='name-infa'>{{ profile.name }} {{ profile.surname }}</p>
                 <p class="status-infa">{{ profile.status }}</p> 
                 {% if profile.user != request.user %}
-                    <button id="room_enter">Написать</button>  
+                    <button id="room_enter">Написать</button>   
                 {% endif %}
             </div></div>
              <article class="bio-profile"> <p>{{ profile.bio }}</p></article>
@@ -40,7 +40,7 @@
         </div>
 
         <center class="posts-wrapper" id="posts_wrapper">
-            <button class="close" id="close"><b>x</b></button>
+            <button class="close-galery" id="close_galery"><b>x</b></button>
             <center class="posts-galery">
                 {% for post in posts %}
                     <a href="{% url 'detail_post' post.id %}">

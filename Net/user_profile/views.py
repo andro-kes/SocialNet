@@ -1,18 +1,23 @@
-from typing import Any
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
 from .models import Profile
 from posts.models import Posts
 from .forms import CreateProfileForm
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class ProfileView(DetailView):
     model = Profile
     template_name = 'user_profile/profile.html'
     context_object_name = 'profile'
+    
+    def get_profile(self, **kwargs):
+        return User.objects.get(username=self.kwargs['slug'])
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['posts'] = Posts.objects.filter(author=self.request.user)
+        context['posts'] = Posts.objects.filter(author=self.get_profile())
         return context
 
 class CreateProfileView(CreateView):

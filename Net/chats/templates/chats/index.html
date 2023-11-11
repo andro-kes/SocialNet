@@ -4,6 +4,9 @@
 {% block content %}
     <div class="wrapper-page-rooms">
         <aside>
+            <a href="{% url 'search' %}" class="search">
+                <img src="{% static 'users/img/search.png' %}" alt="chat" class="search-icon">
+            </a>
             <a href="{% url 'main' %}" class="menu">
                 <img src="{% static 'users/img/main.png' %}" alt="chat" class="menu-icon">
             </a>
